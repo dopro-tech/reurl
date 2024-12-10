@@ -12,7 +12,7 @@
     var urlParmStr = url.slice(url.indexOf('=')+1);
     var ua = navigator.userAgent.toLowerCase();
 
-    var urls = ['https://zz11.1916sport.com','https://zz22.1916sport.com','https://zz33.1916sport.com','https://zz44.1916sport.com','https://zz55.1916sport.com','https://zz66.1916sport.com'];
+    var urls = ['https://zz11.1916sport.com','https://zz22.1916sport.com','https://zz33.1916sport.com','https://zz44.1916sport.com','https://zz55.1916sport.com'];
     var ndomain = urls[Math.floor(Math.random() * urls.length)];
     location.href = ndomain+'/api/?url='+urlParmStr;
     
