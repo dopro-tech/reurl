@@ -3,20 +3,32 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=0,viewport-fit=cover">
-    <title>中转</title>
+    <title>请在浏览器中打开</title>
 </head>
 <body>
-    <div id="tips" style="font-size:25px;text-align: center;line-height: 50px;"></div>
     <script>
     var url = document.location.toString();
     var urlParmStr = url.slice(url.indexOf('=')+1);
     var ua = navigator.userAgent.toLowerCase();
+    var isQQ = ua.indexOf('qq') != -1;
+    var isWeixin = ua.indexOf('micromessenger') != -1;
+    var isAndroid = ua.indexOf('android') != -1;
+    var isIos = (ua.indexOf('iphone') != -1) || (ua.indexOf('ipad') != -1);
 
-    var urls = ['https://dodoa.1916sport.com','https://zz91j.1916sport.com','https://zz92h.1916sport.com','https://zz93z.1916sport.com','https://zz94p.1916sport.com','https://zz95o.1916sport.com','https://zz96a.1916sport.com','https://zz97x.1916sport.com','https://zz98k.1916sport.com','https://zz55.1916sport.com'];
-    var ndomain = urls[Math.floor(Math.random() * urls.length)];
-    location.href = ndomain+'/api/?url='+urlParmStr;
-    
+
+    // 判断是不是在微信客户端打开
+    if(isWeixin || isQQ) {
+    	// 判断是在Android的微信客户端还是Ios的微信客户端
+    	document.write("<img style='width: 100%' src='images/wex1.jpg'>");
+		document.write("<img style='width: 100%' src='images/tu2.jpg'>");
+    } else {
+    // 不是微信客户端，直接可以访问链接
+    if (urlParmStr == url){
+        urlParmStr = "https://www.xxx.com";
+    }
+    console.log(urlParmStr);
+    location.href=urlParmStr;
+    }
 </script>
-    <script charset="UTF-8" id="LA_COLLECT" src="//sdk.51.la/js-sdk-pro.min.js"></script><script>LA.init({id:"K8YSQIj3WDtj9gG6",ck:"K8YSQIj3WDtj9gG6"})</script>
 </body>
 </html>
